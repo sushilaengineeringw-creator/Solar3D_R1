@@ -1,0 +1,12 @@
+{
+  "appId": "com.solar3d.viewer",
+  "appName": "Solar 3D",
+  "webDir": "dist",
+  "backgroundColor": "#0f172a",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}

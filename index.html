@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Solar 3D</title>
+  </head>
+  <body class="bg-slate-900 text-slate-100 overflow-hidden fixed inset-0 select-none">
+    <canvas id="c" class="fixed inset-0 w-full h-full block"></canvas>
+
+    <!-- Top bar -->
+    <div class="fixed top-0 inset-x-0 p-3 pt-[max(0.75rem,env(safe-area-inset-top))] flex items-center justify-between gap-2 pointer-events-none">
+      <div class="pointer-events-auto bg-slate-900/80 backdrop-blur rounded-xl px-3 py-2 text-sm">
+        <div class="font-semibold">☀️ <span id="kw">0</span> kW &middot; <span id="count">0</span> panels</div>
+        <div class="text-xs text-slate-300">≈ <span id="units">0</span> units/year</div>
+      </div>
+      <div id="status" class="pointer-events-auto bg-slate-900/80 backdrop-blur rounded-xl px-3 py-2 text-xs">
+        Offline
+      </div>
+    </div>
+
+    <!-- Bottom sheet -->
+    <div class="fixed bottom-0 inset-x-0 bg-slate-900/90 backdrop-blur rounded-t-2xl p-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-3 text-sm">
+      <div class="grid grid-cols-2 gap-3">
+        <label class="block">
+          <span class="text-xs text-slate-300">Panels across: <b id="colsV">6</b></span>
+          <input id="cols" type="range" min="1" max="7" value="6" class="w-full accent-amber-400" />
+        </label>
+        <label class="block">
+          <span class="text-xs text-slate-300">Panel rows: <b id="rowsV">2</b></span>
+          <input id="rows" type="range" min="1" max="2" value="2" class="w-full accent-amber-400" />
+        </label>
+        <label class="block">
+          <span class="text-xs text-slate-300">Roof tilt: <b id="tiltV">25</b>°</span>
+          <input id="tilt" type="range" min="10" max="40" value="25" class="w-full accent-amber-400" />
+        </label>
+        <label class="block">
+          <span class="text-xs text-slate-300">Sun time: <b id="hourV">12:00</b></span>
+          <input id="hour" type="range" min="6" max="18" step="0.25" value="12" class="w-full accent-amber-400" />
+        </label>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <input
+          id="room"
+          maxlength="12"
+          class="flex-1 min-w-0 bg-slate-800 rounded-lg px-3 py-2 uppercase tracking-widest text-center"
+          placeholder="ROOM"
+        />
+        <button id="join" class="bg-amber-400 text-slate-900 font-semibold rounded-lg px-4 py-2">Join</button>
+        <button id="share" class="bg-slate-700 rounded-lg px-3 py-2">Share</button>
+      </div>
+      <label class="flex items-center gap-2 text-xs text-slate-300">
+        <input id="follow" type="checkbox" checked class="accent-amber-400" />
+        Follow other users' view (uncheck to explore on your own)
+      </label>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
